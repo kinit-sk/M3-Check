@@ -1,0 +1,14 @@
+run_args:
+  experiment_name: linear_projection[pa_untied_init]
+  description:
+
+modalities:
+  posts:
+    ocr:
+      modality: ocr_combined
+
+model:
+  _target_: models.Retrieval_Project
+  emb_dim: ${args.emb_dim}
+  tied: false
+  tied_init: false

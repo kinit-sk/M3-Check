@@ -1,0 +1,19 @@
+run_args:
+  experiment_name: opti_free_concat[text]
+  description:
+  
+args:
+  normalize_features: true
+
+modalities:
+  posts:
+    ~image:
+    ~ocr:
+      
+model:
+  _target_: models.Retrieval_Concat
+
+~optimizer:
+
+trainer:
+  _target_: routines.DummyTrainer

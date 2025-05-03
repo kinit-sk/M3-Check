@@ -1,0 +1,22 @@
+run_args:
+  experiment_name: linear_projection[layer_norm_post]
+  description:
+
+args:
+  normalize_features: true
+
+modalities:
+  posts:
+    ocr:
+      modality: ocr_combined
+
+model:
+  _target_: models.Retrieval_Project
+  emb_dim: ${args.emb_dim}
+  tied: false
+  tied_init: true
+  linear_init: ${method:torch.nn.init.orthogonal_}
+  layer_norm_post:
+    _target_: models.RMSNorm
+    _partial_: true
+    eps: 1e-6

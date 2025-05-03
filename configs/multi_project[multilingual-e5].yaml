@@ -1,0 +1,23 @@
+run_args:
+  experiment_name: multi_project[multilingual-e5]
+  description:
+
+args:
+  embedder_text: multilingual-E5
+  embedder_ocr: multilingual-E5
+
+modalities:
+  posts:
+    ocr:
+      modality: ocr_combined
+
+model:
+  _target_: models.Retrieval_EmbedModel
+  make_post_embed_model:
+    _target_: models.MultiProjectModel
+    _partial_: true
+    output_dim: ${eval:'${args.emb_dim}*len(${modalities.posts})'}
+    pre_fusion_layers:
+      - ${eval:'${args.emb_dim}*len(${modalities.posts})'}
+    post_fusion_layers:
+      - ${eval:'${args.emb_dim}*len(${modalities.posts})'}

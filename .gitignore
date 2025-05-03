@@ -1,0 +1,17 @@
+/.cache/*
+/.eggs/*
+/UNKNOWN*
+/build/*
+/dist/*
+**/__pycache__/*
+*.egg-info/*
+*.pyc
+.ipynb_checkpoints
+/results/*
+/outputs/*
+/checkpoints_pt/*
+/checkpoints/*
+/wandb/*
+/mlruns/*
+/mlartifacts/*
+/tmp/*

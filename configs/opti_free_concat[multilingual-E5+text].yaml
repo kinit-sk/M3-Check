@@ -1,0 +1,23 @@
+run_args:
+  experiment_name: opti_free_concat[multilingual-E5+text]
+  description:
+  
+args:
+  normalize_features: true
+  embedder_text: multilingual-E5
+  embedder_ocr: multilingual-E5
+
+modalities:
+  posts:
+    image:
+      all_dummy: true
+    ocr:
+      all_dummy: true
+      
+model:
+  _target_: models.Retrieval_Concat
+
+~optimizer:
+
+trainer:
+  _target_: routines.DummyTrainer

@@ -1,0 +1,23 @@
+run_args:
+  experiment_name: llama_transformer[cls_no_pooling+multilingual-e5]
+  description:
+
+args:
+  embedder_text: multilingual-E5
+  embedder_ocr: multilingual-E5
+
+modalities:
+  posts:
+    ocr:
+      modality: ocr_combined
+
+model:
+  _target_: models.RetrievalLammaTransformer
+  config:
+    _target_: models.make_llama_config
+    hidden_size: ${args.emb_dim}
+    intermediate_size: 64
+    num_attention_heads: 4
+    num_hidden_layers: 3
+  output_token: 0
+  add_cls_token: true

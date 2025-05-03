@@ -1,0 +1,18 @@
+run_args:
+  experiment_name: linear_projection[pa_untied_init+multilingual-e5]
+  description:
+
+args:
+  embedder_text: multilingual-E5
+  embedder_ocr: multilingual-E5
+
+modalities:
+  posts:
+    ocr:
+      modality: ocr_combined
+
+model:
+  _target_: models.Retrieval_Project
+  emb_dim: ${args.emb_dim}
+  tied: false
+  tied_init: false
